@@ -16,43 +16,29 @@ const db = firebase.firestore();
 
 // Add an event listener for the "Send Message" button
 document.getElementById("sendMessageButton").addEventListener("click", function () {
-    // Get form data
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Validate form fields
     if (!name || !email || !message) {
-        alert("All fields are required. Please fill out the form.");
+        alert("All fields are required!");
         return;
     }
 
-    // Store the form data in Firestore
-    db.collection("messages")
-        .add({
-            name: name,
-            email: email,
-            message: message,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        })
-        .then(() => {
-            alert("Message sent successfully!");
-            // Clear form fields
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("message").value = "";
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-            alert("There was an error sending your message. Please try again.");
-        });
+    db.collection("messages").add({
+        name: name,
+        email: email,
+        message: message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+        alert("Message sent successfully!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    })
+    .catch((error) => {
+        console.error("Error adding document:", error);
+        alert("There was an error sending your message. Please try again.");
+    });
 });
-
-
-
-
-
-
-
-
-
