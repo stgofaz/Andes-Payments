@@ -13,16 +13,16 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// Attach event listener to the <a> tag
+// Attach click event listener to the <a> tag
 document.getElementById("sendMessageButton").addEventListener("click", async (e) => {
-    e.preventDefault(); // Prevent default behavior of <a> tag
+    e.preventDefault(); // Prevent the default anchor behavior (navigating to #)
 
-    // Get values from form fields
+    // Get form data
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Validate inputs
+    // Validate input fields
     if (!name || !email || !message) {
         alert("Please fill out all fields before submitting.");
         return;
@@ -30,18 +30,18 @@ document.getElementById("sendMessageButton").addEventListener("click", async (e)
 
     try {
         // Save data to Firestore
-        await db.collection("Contact Andes Payments").add({
+        await db.collection("ContactMessages").add({
             name: name,
             email: email,
             message: message,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Show success message and reset the form
-        alert("Your message was sent successfully!");
-        document.getElementById("contactForm").reset();
+        // Success message
+        alert("Your message has been sent successfully!");
+        document.getElementById("contactForm").reset(); // Clear the form
     } catch (error) {
-        console.error("Error sending the message:", error);
+        console.error("Error submitting form:", error);
         alert("There was an error submitting your message. Please try again.");
     }
 });
