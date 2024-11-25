@@ -1,4 +1,30 @@
 @import url(fontawesome-all.min.css);
+/* Color Palette */
+:root {
+    --blue-popsicle: #0f2862;
+    --redline: #9e363a;
+    --purple-shadow: #091f36;
+    --grey-blue-leaf: #4f5f76;
+}
+
+/* Other CSS rules... */
+
+body {
+    background: var(--blue-popsicle);
+}
+
+/* Update other styles as needed */
+a:hover {
+    color: var(--redline);
+}
+
+strong, b {
+    color: var(--redline);
+}
+
+h1.major:after {
+    background-image: linear-gradient(to right, var(--purple-shadow), var(--redline));
+}
 
 /*
 	Hyperspace by HTML5 UP
@@ -30,6 +56,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	
 }
 
 ol, ul {
