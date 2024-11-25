@@ -1,28 +1,25 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+ // Import the functions you need from the SDKs you need
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+ import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+ 
 const firebaseConfig = {
-  apiKey: "AIzaSyAjcbaj_6oGJUzVXUUqNH2FuJ1YYwPic9s",
-  authDomain: "andes-payments.firebaseapp.com",
-  projectId: "andes-payments",
-  storageBucket: "andes-payments.firebasestorage.app",
-  messagingSenderId: "60674487113",
-  appId: "1:60674487113:web:b30b11f9abf19071526098",
-  measurementId: "G-4VSW41KXE9"
+    apiKey: "AIzaSyAjcbaj_6oGJUzVXUUqNH2FuJ1YYwPic9s",
+    authDomain: "andes-payments.firebaseapp.com",
+    projectId: "andes-payments",
+    storageBucket: "andes-payments.firebasestorage.app",
+    messagingSenderId: "60674487113",
+    appId: "1:60674487113:web:b30b11f9abf19071526098",
+    measurementId: "G-4VSW41KXE9"
 };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const analytics = getAnalytics(app);
 
 // Add an event listener for the "Send Message" button
 document.getElementById("sendMessageButton").addEventListener("click", function () {
