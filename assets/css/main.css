@@ -3907,3 +3907,8 @@ input, select, textarea {
 			}
 
 		}
+@media (max-width: 1024px) {
+    .image img[src*="pic02.jpg"] {
+        object-position: 25% center;
+    }
+}
