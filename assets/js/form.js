@@ -15,7 +15,7 @@ document.getElementById("sendMessageButton").addEventListener("click", async fun
 
     try {
         // Add the form data to the "messages" collection
-        await addDoc(collection(window.db, "messages"), {
+        await addDoc(collection(window.db, "Contact Andes Payments"), {
             name: name,
             email: email,
             message: message,
