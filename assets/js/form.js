@@ -1,20 +1,25 @@
-// Import Firebase modules
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Firebase configuration
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDmEntYzTjTJ_UpsQhu-DtMxTGcNDDsj0M",
-  authDomain: "form-webpage-b9551.firebaseapp.com",
-  projectId: "form-webpage-b9551",
-  storageBucket: "form-webpage-b9551.appspot.com",
-  messagingSenderId: "746995513724",
-  appId: "1:746995513724:web:dacc59687cbe4e3fcf8cf9",
-  measurementId: "G-L7CSHZE0CH"
+  apiKey: "AIzaSyB6ytoo25Uq7ps5FmL1JAhrh6AmQ1EWpKc",
+  authDomain: "consulting-66910.firebaseapp.com",
+  projectId: "consulting-66910",
+  storageBucket: "consulting-66910.firebasestorage.app",
+  messagingSenderId: "1012615419683",
+  appId: "1:1012615419683:web:16dee841f02db45f889e96",
+  measurementId: "G-845S76R3CW"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 // Add an event listener to the "Send Message" button
@@ -34,7 +39,7 @@ document.getElementById("sendMessageButton").addEventListener("click", async fun
 
   try {
     // Add data to Firestore
-    await addDoc(collection(db, "ContactAndesPayments"), {
+    await addDoc(collection(db, "Contactoform"), {
       name,
       email,
       message,
