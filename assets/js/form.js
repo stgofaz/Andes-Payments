@@ -46,7 +46,7 @@ try {
   });
   console.log("Document written with ID: ", docRef.id);
   alert("Message sent successfully!");
-  document.getElementById("ContactoForm").reset();
+  document.getElementById("contact_form").reset();
 } catch (error) {
   console.error("Error adding document: ", error.message, error.code, error.stack);
   alert("An error occurred. Please check the console for details.");
