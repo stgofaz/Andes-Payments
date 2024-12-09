@@ -48,7 +48,7 @@ document.getElementById("sendMessageButton").addEventListener("click", async fun
 
     // Success message and reset form
     alert("Message sent successfully!");
-    document.getElementById("contactoForm").reset(); // Clear the form inputs
+    document.getElementById("ContactoForm").reset(); // Clear the form inputs
   } catch (error) {
     // Handle errors
     console.error("Error sending message:", error);
