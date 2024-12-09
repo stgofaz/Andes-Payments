@@ -37,22 +37,19 @@ document.getElementById("sendMessageButton").addEventListener("click", async fun
     return;
   }
 
-  try {
-    // Add data to Firestore
-    await addDoc(collection(db, "Contactoform"), {
-      name,
-      email,
-      message,
-      timestamp: serverTimestamp()
-    });
-
-    // Success message and reset form
-    alert("Message sent successfully!");
-    document.getElementById("ContactoForm").reset(); // Clear the form inputs
-  } catch (error) {
-    // Handle errors
-    console.error("Error sending message:", error);
-    alert("An error occurred. Please try again.");
-  }
+try {
+  const docRef = await addDoc(collection(db, "Contactoform"), {
+    name,
+    email,
+    message,
+    timestamp: serverTimestamp(),
+  });
+  console.log("Document written with ID: ", docRef.id);
+  alert("Message sent successfully!");
+  document.getElementById("ContactoForm").reset();
+} catch (error) {
+  console.error("Error adding document: ", error.message, error.code, error.stack);
+  alert("An error occurred. Please check the console for details.");
+}
 });
 
