@@ -20,7 +20,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-//const db = getFirestore(app);
+const db = getFirestore(app);
 
 // Add an event listener to the "Send Message" button
 document.getElementById("sendMessageButton").addEventListener("click", async function (event) {
