@@ -1,12 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getFirestore, collection, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { getFirestore, collection, setDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyB6ytoo25Uq7ps5FmL1JAhrh6AmQ1EWpKc",
   authDomain: "consulting-66910.firebaseapp.com",
@@ -37,19 +34,22 @@ document.getElementById("sendMessageButton").addEventListener("click", async fun
     return;
   }
 
-try {
-  const docRef = await setDoc(doc(collection(db, "Contactoform")), {
-    name,
-    email,
-    message,
-    timestamp: serverTimestamp(),
-  });
-  console.log("Document written with ID: ", docRef.id);
-  alert("Message sent successfully!");
-  document.getElementById("contact_form").reset();
-} catch (error) {
-  console.error("Error adding document: ", error.message, error.code, error.stack);
-  alert("An error occurred. Please check the console for details.");
-}
-});
+  console.log("Form data:", { name, email, message });
 
+  try {
+    const docRef = await setDoc(doc(collection(db, "Contactoform")), {
+      name,
+      email,
+      message,
+      timestamp: serverTimestamp(),
+    });
+    console.log("Document written with ID:", docRef.id);
+    alert("Message sent successfully!");
+    document.getElementById("contact_form").reset();
+  } catch (error) {
+    console.error("Error adding document:", error.message);
+    console.error("Error code:", error.code);
+    console.error("Error stack:", error.stack);
+    alert(`An error occurred: ${error.message}`);
+  }
+});
