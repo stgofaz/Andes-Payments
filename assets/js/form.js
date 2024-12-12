@@ -38,7 +38,7 @@ document.getElementById("sendMessageButton").addEventListener("click", async fun
   }
 
 try {
-  const docRef = await setDoc(collection(db, "Contactoform"), {
+  const docRef = await setDoc(doc(collection(db, "Contactoform")), {
     name,
     email,
     message,
